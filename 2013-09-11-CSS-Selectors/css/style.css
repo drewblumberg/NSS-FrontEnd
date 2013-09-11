@@ -1,0 +1,32 @@
+/*Selecting by id*/
+#div1 {
+  color: #ff0000;
+}
+/*Selecting by class*/
+.divs {
+  background-color: yellow;
+}
+/*Selecting by tag*/
+p {
+  color: green;
+}
+
+a[href="http://google.com"] {
+  background-color: red;
+}
+
+a[href$='cnn.com']{
+  background-color: green;
+}
+
+a[href*='yahoo']{
+  background-color: rgb(0,135,135);
+}
+
+a:hover {
+  background-color: white;
+}
+
+ul.ulist > li:nth-child(3) > span:nth-child(2){
+  font-size: 25px;
+}
