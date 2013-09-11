@@ -1,0 +1,57 @@
+@import url(http://fonts.googleapis.com/css?family=Kavoon);
+@import url(http://fonts.googleapis.com/css?family=Noticia+Text);
+
+body {
+  background-color: #99CC99;
+  font-family: 'Noticia Text', serif;
+  font-size: 20px;
+}
+
+#logoimg {
+  float: left;
+  width: 100px;
+
+}
+
+#logotxt {
+  float: left;
+  width: 400px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+header > div > h1 {
+  font-family: 'Kavoon', cursive;
+  font-size: 35px;
+}
+
+.clear {
+  clear: both;
+}
+
+h2 {
+  font-size: 28px;
+}
+
+ul {
+  list-style: inside square;
+  padding-left: 50px;
+}
+
+section > p {
+  padding: 10px;
+  line-height: 27px;
+}
+
+section > p:nth-child(odd) {
+  font-style: italic;
+  color: blue;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+footer {
+  float: right;
+}
