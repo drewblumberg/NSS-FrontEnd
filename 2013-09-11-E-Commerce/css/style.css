@@ -1,0 +1,108 @@
+@import url(http://fonts.googleapis.com/css?family=Istok+Web);
+
+/*Page Styles*/
+body {
+  font-family: 'Istok Web', sans-serif;
+}
+
+/*Header styling*/
+#logo img {
+  width: 75px;
+  height: 75px;
+  padding: 10px;
+  margin-left: 20px;
+  float:left;
+}
+
+#tagline {
+  color: white;
+  font-style: italic;
+  font-size: 25px;
+  padding-top: 36px;
+  margin-left: 225px;
+  float: left;
+}
+
+#cart {
+  color: white;
+  font-size: 20px;
+  float: right;
+  margin-top: 15px;
+  margin-right: 20px;
+}
+
+#cart a {
+  color: white;
+}
+
+#cart img {
+  margin-top: 5px;
+  float: right;
+}
+
+.clear {
+  clear:both;
+}
+
+header {
+  background-color: #003366;
+  border-bottom: 1px solid #000099;
+}
+
+/*Navigation styling*/
+nav {
+  background: -webkit-linear-gradient(top, #3399FF, #003366);
+  font-size: 20px;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+nav ul > li {
+  display: inline-block;
+  padding: 10px;
+  margin-left: 20px;
+}
+
+nav ul > li a {
+  text-decoration: none;
+  color: white;
+}
+
+/*Main Section Styling on Home Page*/
+section {
+  width: 960px;
+  margin: auto;
+}
+
+section h1 {
+  font-size: 35px;
+  text-align: center;
+  margin-top: 35px;
+}
+
+#vid-primary {
+  margin: 50px 0 50px 100px;
+}
+
+.org {
+  font-style: italic;
+}
+
+/*Footer Styling*/
+footer {
+  background-color: #CCCCCC;
+  font-size: 20px;
+  padding: 10px;
+}
+
+#cp {
+  float: left;
+}
+
+#footer-nav {
+  float: right;
+}
+
+#footer-nav a {
+  color: #;
+}
