@@ -159,7 +159,7 @@ p {
 
 /*FAQs*/
 .faqs {
-  margin-bottom: 189px;
+  margin-bottom: 200px;
 }
 
 .faqs h2 {
@@ -176,7 +176,16 @@ p {
 .contact {
   text-align: center;
   font-size: 20px;
-  margin-bottom: 301px;
+  margin-bottom: 10px;
+}
+
+.map {
+  margin-bottom: 20px;
+}
+
+.map-container {
+  margin-bottom: 10px;
+  margin-left: 268px;
 }
 
 /*Shopping Cart*/
