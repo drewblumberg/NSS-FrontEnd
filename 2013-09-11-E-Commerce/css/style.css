@@ -1,8 +1,9 @@
 @import url(http://fonts.googleapis.com/css?family=Istok+Web);
 
 /*Page Styles*/
-body {
+html, body {
   font-family: 'Istok Web', sans-serif;
+  height: 100%;
 }
 
 /*Header styling*/
@@ -35,9 +36,13 @@ body {
   color: white;
 }
 
+#cart div {
+  text-align: center;
+}
+
 #cart img {
   margin-top: 5px;
-  float: right;
+  /*float: right;*/
 }
 
 .clear {
@@ -52,9 +57,13 @@ header {
 /*Navigation styling*/
 nav {
   background: -webkit-linear-gradient(top, #3399FF, #003366);
+  background: -moz-linear-gradient(top, #3399FF, #003366);
   font-size: 20px;
-  text-align: left;
   text-transform: uppercase;
+}
+
+nav a:hover{
+  text-decoration: underline;
 }
 
 nav ul > li {
@@ -88,6 +97,148 @@ section h1 {
   font-style: italic;
 }
 
+/*Styling on the About Page*/
+h2.about-fact {
+  font-size: 28px;
+}
+
+p {
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+/*The Products Page*/
+
+.sub {
+  text-align: center;
+}
+
+.products {
+  text-align: center;
+  width: 760px;
+  margin-left: 100px;
+}
+
+.products img {
+  vertical-align: middle;
+}
+
+.products h4 {
+  font-size: 20px;
+  float: left;
+  vertical-align: middle;
+}
+ /*Product Page*/
+.product-vid {
+  margin-top: 20px;
+  margin-left: 200px;
+}
+
+.productName h2 {
+  font-size: 25px;
+  margin-top: 10px;
+}
+
+.productPrice h2 {
+  margin-top: 10px;
+  font-size: 20px;
+}
+
+.button-cart {
+  margin-top: 10px;
+}
+
+.specs {
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.specs tr td:nth-child(odd) {
+  width: 25%;
+}
+
+/*FAQs*/
+.faqs {
+  margin-bottom: 189px;
+}
+
+.faqs h2 {
+  font-size: 28px;
+  margin-top: 10px;
+}
+
+.faqs em {
+  font-style: italic;
+  font-size: 20px;
+}
+
+/*Contact Us Page*/
+.contact {
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 301px;
+}
+
+/*Shopping Cart*/
+.info {
+  font-size: 35px;
+  margin-top: 35px;
+}
+
+#customerName {
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+#customerAddress {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.finance {
+  margin-top: 10px;
+  width: 100%;
+}
+
+.finance td:nth-child(even) {
+  text-align: center;
+}
+
+.finance tr > td:last-child {
+  text-align: right;
+}
+
+.finance tr > td {
+  padding-bottom: 10px;
+}
+
+.finance tr:last-child {
+  border-bottom: 1px solid black;
+}
+
+.totals {
+  clear:both;
+  float: right;
+  width: 30%;
+  margin-top: 10px;
+  text-align: right;
+}
+
+.totals tr:last-child {
+  font-size: 20px;
+}
+
+.totals tr > td {
+  padding-bottom: 20px;
+}
+
+.ship {
+  clear: both;
+  float: right;
+  padding: 20px;
+  margin-bottom: 39px;
+}
+
 /*Footer Styling*/
 footer {
   background-color: #CCCCCC;
@@ -97,12 +248,14 @@ footer {
 
 #cp {
   float: left;
+  margin-left: 20px;
 }
 
 #footer-nav {
   float: right;
+  margin-right: 20px;
 }
 
 #footer-nav a {
-  color: #;
+  color: #003366;
 }

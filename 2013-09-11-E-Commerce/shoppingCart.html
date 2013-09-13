@@ -10,20 +10,27 @@
 
 <body>
   <header>
-    <img src="images/logo.jpg">
+    <div id="logo"><img src="images/logo.jpg"></div>
+    <div id="tagline">Your online source for As-Seen-On-TV products.&trade;</div>
+    <div id="cart">
+      <a href="#">Sign In</a> | <a href="#">Sign Up</a>
+      <div><a href="shoppingCart.html"><img src="images/shoppingcart.png"></a></div>
+    </div>
+    <div class="clear"></div>
   </header>
   <nav>
   <ul>
-    <li><a href="home.html">Home</a></li>
+    <li><a href="index.html">Home</a></li>
     <li><a href="products.html">Products</a></li>
     <li><a href="faq.html">FAQ</a></li>
     <li><a href="contact.html">Contact</a></li>
   </ul>
   </nav>
   <section>
+    <div class="info">Customer Info</div>
     <div id="customerName">Chyld Medford</div>
     <div id="customerAddress">315 10th Avenue N<br>Nashville, TN 37209</div>
-    <table>
+    <table class="finance">
       <tr><h3>
         <td>Quantity</td>
         <td>Product Name</td>
@@ -44,21 +51,29 @@
         <td>Slap Chop</td>
         <td>$39.90</td>
       </tr>
+    </table>
+    <table class="totals">
       <tr>
-        <td colspan="2">Sub-Total</td>
-        <td><h3>$34.95</h3></td>
-      </tr>
-      <tr>214.65
-        <td colspan="2">Tax</td>
-        <td><h3>21.47</h3></td>
+        <td>Sub-Total</td>
+        <td><h3>$214.65</h3></td>
       </tr>
       <tr>
-        <td colspan="2">Total</td>
+        <td>Tax</td>
+        <td><h3>$21.47</h3></td>
+      </tr>
+      <tr>
+        <td>Total</td>
         <td><h3>$236.12</h3></td>
       </tr>
+    </table>
+    <button class="ship">Ship My Order!</button>
+    <div class="clear"></div>
+  </section>
 
   <footer>
-    <a href="about.html">About</a>
+    <div id="cp">&copy; 2013 As Sold On The Internet</div>
+    <div id="footer-nav"><a href="about.html">About</a></div>
+    <div class="clear"></div>
   </footer>
 </body>
 
