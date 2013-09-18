@@ -1,0 +1,33 @@
+#container {
+  width: 960px;
+  margin: auto;
+}
+
+body {
+  background: url(../images/bkgrnd-Spider-on-Web-1.jpg) repeat;
+}
+
+body > div > section:nth-child(1) {
+  width: 600px;
+  float: left;
+}
+
+body > div > section:nth-child(2) {
+  width: 360px;
+  float: left;
+}
+
+body > div > section:nth-child(2) p {
+  width: 320px;
+  margin: 0 20px 0 20px;
+}
+
+body > div > section:nth-child(1) p {
+  width: 290px;
+  margin: 0 5px 0 5px;
+  float: left;
+}
+
+.clear {
+  clear: both;
+}
