@@ -2,8 +2,7 @@ div#content {
   section {
 
     h1 {
-      font-size: $normal-font-size + 8px;
-      color: $tesla-red;
+      @include font_fn($tesla-red, $brand-font, $normal-font-size + 8px, 20px, 5px);
     }
 
     h2 {
@@ -12,8 +11,8 @@ div#content {
     }
 
     p {
-      font-size: $normal-font-size;
-      color: $reading-color;
+      @include font_fn(#ff0033, $brand-font, 14px, 20px);
+      @include box_fn(5px, 10px, 2px dashed green, 20px, yellow, 5px 5px 10px black)
     }
   }
 }
