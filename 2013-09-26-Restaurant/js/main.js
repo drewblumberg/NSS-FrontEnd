@@ -4,6 +4,8 @@ var item = {};
 var type_response = prompt('Enter a category for the menu or leave blank to exit:');
 var item_response;
 
+//Function to print the menu in the console
+
 function print_menu(categories, foods) {
   for(var k =0; k < categories.length; k++) {
     console.log(categories[k]);
