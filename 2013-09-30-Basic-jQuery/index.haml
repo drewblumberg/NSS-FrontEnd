@@ -1,0 +1,36 @@
+!!! 5
+%html{lang: 'en'}
+  %head
+    %meta{charset: 'utf-8'}
+    %title Haml/Sass Template
+    %link{rel: "stylesheet", href:'css/normalize.css'}
+    %link{rel: "stylesheet", href:'css/qunit-theme-gabe.css'}
+    %link{rel: "stylesheet", href:'css/style.css'}
+  %body
+    = Haml::Engine.new(File.read('haml/_header.haml')).render
+    = Haml::Engine.new(File.read('haml/_nav.haml')).render
+    = Haml::Engine.new(File.read('haml/_content.haml')).render
+    = Haml::Engine.new(File.read('haml/_footer.haml')).render
+
+    %input#texter{type: 'text', placeholder: 'Type here...'}
+    %input#clicker{type: 'button', value: 'Press Me'}
+    .clear
+    %input#color{type:'textbox'}
+
+    #div1 DIV 1
+    #div2 DIV 2
+    #div3 DIV 3
+    #div4 DIV 4
+
+    %input#age{type: 'text', placeholder:'Enter an age..'}
+    %input#age_check{type: 'button', value: 'Verify Age!'}
+    #age_div Age Verification
+
+    / #qunit
+    / #qunit-fixture
+
+    %script{src: 'js/jquery-1.10.2.min.js'}
+    %script{src: 'js/underscore-min.js'}
+    //%script{src: 'js/qunit-1.12.0.js'}
+    %script{src: 'js/main.js'}
+    //%script{src: 'js/testing.js'}
