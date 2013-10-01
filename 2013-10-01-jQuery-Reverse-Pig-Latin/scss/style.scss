@@ -1,0 +1,46 @@
+@import 'colors';
+@import 'fonts';
+
+#main {
+  width: 600px;
+  margin: auto;
+}
+
+#inputs {
+  float: left;
+
+  #symbol {
+    display: block;
+    margin-left: 150px;
+  }
+
+  #symbol2 {
+    display: block;
+    margin-left: 149px;
+  }
+
+  input {
+    width: 300px;
+  }
+}
+
+#convert {
+  float: right;
+  margin-top: 20px;
+  padding: 10px;
+}
+
+.clear {
+  clear: both;
+}
+
+#qunit, #qunit-fixture {
+  &:before {
+    clear: both;
+  }
+}
+
+#qunit-testrunner-toolbar {
+  position: static;
+}
+

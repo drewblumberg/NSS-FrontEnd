@@ -1,0 +1,28 @@
+#main {
+  width: 600px;
+  margin: auto; }
+
+#inputs {
+  float: left; }
+  #inputs #symbol {
+    display: block;
+    margin-left: 150px; }
+  #inputs #symbol2 {
+    display: block;
+    margin-left: 149px; }
+  #inputs input {
+    width: 300px; }
+
+#convert {
+  float: right;
+  margin-top: 20px;
+  padding: 10px; }
+
+.clear {
+  clear: both; }
+
+#qunit:before, #qunit-fixture:before {
+  clear: both; }
+
+#qunit-testrunner-toolbar {
+  position: static; }

@@ -4,6 +4,7 @@
     %meta{charset: 'utf-8'}
     %title Haml/Sass Template
     %link{rel: "stylesheet", href:'css/normalize.css'}
+    %link{rel: "stylesheet", href:'css/qunit-theme-gabe.css'}
     %link{rel: "stylesheet", href:'css/style.css'}
   %body
     = Haml::Engine.new(File.read('haml/_header.haml')).render
@@ -11,7 +12,20 @@
     = Haml::Engine.new(File.read('haml/_content.haml')).render
     = Haml::Engine.new(File.read('haml/_footer.haml')).render
 
+    #main
+      #inputs
+        %input#original{type: 'text'}
+        %span#symbol ||
+        %span#symbol2 V
+        %input#converted{type: 'text', readonly: true}
+      %input#convert{type: 'button', value: 'Convert Pig and Reverse'}
+      .clear
+
+    #qunit
+    #qunit-fixture
+
     %script{src: 'js/jquery-1.10.2.min.js'}
     %script{src: 'js/underscore-min.js'}
+    %script{src: 'js/qunit-1.12.0.js'}
     %script{src: 'js/main.js'}
-
+    %script{src: 'js/testing.js'}
