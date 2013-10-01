@@ -1,0 +1,11 @@
+.clear {
+  clear: both; }
+
+#amount {
+  margin-top: 10px; }
+
+.overdraft {
+  background-color: red; }
+
+#overdraft {
+  display: none; }

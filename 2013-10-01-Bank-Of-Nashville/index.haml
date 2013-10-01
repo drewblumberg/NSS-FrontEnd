@@ -1,0 +1,26 @@
+!!! 5
+%html{lang: 'en'}
+  %head
+    %meta{charset: 'utf-8'}
+    %title Bank of Nashville
+    %link{rel: "stylesheet", href:'css/normalize.css'}
+    %link{rel: "stylesheet", href:'css/style.css'}
+  %body
+    = Haml::Engine.new(File.read('haml/_header.haml')).render
+    = Haml::Engine.new(File.read('haml/_nav.haml')).render
+    = Haml::Engine.new(File.read('haml/_content.haml')).render
+    = Haml::Engine.new(File.read('haml/_footer.haml')).render
+
+    %h1 Bank of Nashville
+    %input#balance{type: 'text', readonly: true}
+    %span Balance
+    %span#overdraft !!Overdrafted!!
+    .clear
+    %input#amount{type: 'text'}
+    %input#deposit{type: 'button', value: 'Deposit'}
+    %input#withdraw{type: 'button', value: 'Withdraw'}
+
+    %script{src: 'js/jquery-1.10.2.min.js'}
+    %script{src: 'js/underscore-min.js'}
+    %script{src: 'js/main.js'}
+
