@@ -1,0 +1,21 @@
+@import 'colors';
+@import 'fonts';
+
+.clear {
+  clear: both;
+}
+
+#result {
+  margin-top: 30px;
+  border-top: 3px solid black;
+  width: 277px;
+  padding: 10px;
+}
+
+#calc {
+  padding: 10px;
+}
+
+#inputs {
+  padding: 10px;
+}
