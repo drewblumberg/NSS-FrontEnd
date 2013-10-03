@@ -1,0 +1,102 @@
+@import 'colors';
+@import 'fonts';
+
+html, body {
+  width: 960px;
+  margin: auto;
+  background-color: #66CC99;
+}
+
+input {
+  margin-right: 20px;
+}
+
+input[type='text'] {
+    width: 500px;
+}
+
+img {
+  width: 100px;
+  height: 100px;
+  border: 1px solid black;
+  vertical-align: middle;
+  margin-right: 20px;
+}
+
+#name {
+  text-align: center;
+}
+
+.clear {
+  clear: both;
+}
+
+.container {
+  margin-top: 30px;
+}
+
+.overdraft {
+  background-color: red;
+}
+
+#balance_amount {
+  margin-top: 10px;
+}
+
+#balance {
+  width: 100px;
+  padding: 5px;
+}
+
+#amount {
+  width: 100px;
+  padding: 5px;
+}
+
+#url {
+  margin-left: 12px;
+}
+
+// Transactions
+
+#transactions {
+  margin-top: 10px;
+  border-top: 2px solid black;
+  text-align: center;
+}
+
+#deposits {
+  width: 390px;
+  margin-left: 60px;
+  float: left;
+  h2 {
+    text-decoration: underline;
+  }
+
+  li {
+    margin-right: 39px;
+    margin-top: 5px;
+    color: green;
+  }
+}
+
+#withdrawals {
+  width: 390px;
+  margin-left: 60px;
+  float: left;
+  h2 {
+    text-decoration: underline
+  }
+
+  li {
+    margin-right: 45px;
+    margin-top: 5px;
+    color: red;
+  }
+}
+
+.list {
+  list-style: none;
+}
+
+
