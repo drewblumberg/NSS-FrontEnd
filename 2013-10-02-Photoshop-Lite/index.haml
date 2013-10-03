@@ -1,0 +1,25 @@
+!!! 5
+%html{lang: 'en'}
+  %head
+    %meta{charset: 'utf-8'}
+    %title Haml/Sass Template
+    %link{rel: "stylesheet", href:'css/normalize.css'}
+    %link{rel: "stylesheet", href:'css/style.css'}
+  %body
+    %h1 Photoshop Lite
+    %input#color{type: 'text'}
+    %input#add{type:'button', value: 'Add Color!'}
+    %span#brush
+    %img{src: 'images/Brush-icon.png'}
+    #colors
+    #add_box_inputs
+      %input#amount{type: 'text', placeholder: '3'}
+      %input#add_box{type: 'button', value: 'Add Boxes!'}
+      %input#clear_colors{type: 'button', value: 'Clear Colors!'}
+    #boxes
+      .clear
+
+    %script{src: 'js/jquery-1.10.2.min.js'}
+    %script{src: 'js/underscore-min.js'}
+    %script{src: 'js/main.js'}
+
