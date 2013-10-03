@@ -24,8 +24,10 @@ function initialize() {
 function setImage() {
   var $url = $('#url');
   $('#logo').attr('src', $url.val());
-  $url.hide();
-  $('#set_logo').hide();
+  $url.remove();
+  $('#set_logo').remove();
+
+  $('#logo').css('margin', 'auto');
 }
 
 function setBalance() {
@@ -48,11 +50,9 @@ function addFunds() {
   // Add to deposit list
   var $li = $('<li>');
   $li.text('$' + funds + '.00');
-  $('#deposits ul').append($li);
+  $('#deposits ul').prepend($li);
 
-  if(balance >= 0) {
-    $('#balance').removeClass('overdraft');
-  }
+  checkOverdraft(balance);
 }
 
 function subtractFunds() {
@@ -63,11 +63,9 @@ function subtractFunds() {
   // Add to withdrawals list
   var $li = $('<li>');
   $li.text('$' + funds + '.00');
-  $('#withdrawals ul').append($li);
+  $('#withdrawals ul').prepend($li);
 
-  if(balance < 0) {
-    $('#balance').addClass('overdraft');
-  }
+  checkOverdraft(balance);
 }
 
 function undoDeposit() {
@@ -77,6 +75,8 @@ function undoDeposit() {
   $('#balance').val('$' + balance);
 
   $this.remove();
+
+  checkOverdraft(balance);
 }
 
 function undoWithdrawal() {
@@ -86,5 +86,16 @@ function undoWithdrawal() {
   $('#balance').val('$' + balance);
 
   $this.remove();
+
+  checkOverdraft(balance);
+}
+
+function checkOverdraft(currentBalance) {
+  if(currentBalance >= 0) {
+    $('#balance').removeClass('overdraft');
+  }
+  else if(currentBalance < 0) {
+    $('#balance').addClass('overdraft');
+  }
 }
 
