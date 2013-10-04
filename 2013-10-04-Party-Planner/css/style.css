@@ -1,0 +1,10 @@
+table tr th {
+  padding-right: 20px; }
+table tr td {
+  padding-right: 20px; }
+
+.up, .down {
+  cursor: pointer; }
+
+.rsvp {
+  margin-left: 5px; }

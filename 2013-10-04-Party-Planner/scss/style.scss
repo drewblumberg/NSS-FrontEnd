@@ -1,0 +1,23 @@
+@import 'colors';
+@import 'fonts';
+
+table {
+  tr{
+    th {
+      padding-right: 20px;
+    }
+
+    td {
+      padding-right: 20px;
+    }
+  }
+}
+
+.up, .down {
+  cursor: pointer;
+}
+
+.rsvp {
+  margin-left: 5px;
+}
+
