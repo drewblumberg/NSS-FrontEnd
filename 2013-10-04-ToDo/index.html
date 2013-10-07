@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset='utf-8'>
+    <title>Haml/Sass Template</title>
+    <link href='css/normalize.css' rel='stylesheet'>
+    <link href='css/style.css' rel='stylesheet'>
+  </head>
+  <body>
+    <div id='container'>
+      <header>
+        <h1 class='logo'>To Do List</h1>
+      </header>
+      <div id='set_tasks'>
+        <table id='get'>
+          <tr>
+            <th>Due Date</th>
+            <th>Task</th>
+            <th>Color</th>
+          </tr>
+          <tr>
+            <td>
+              <input id='due' type='text'>
+            </td>
+            <td>
+              <input id='task' type='text'>
+            </td>
+            <td>
+              <input id='colorInput' type='text'>
+            </td>
+            <td>
+              <input id='task_btn' type='button' value='Add Task'>
+            </td>
+          </tr>
+        </table>
+        <h1 class='logo'>
+          Tasks
+        </h1>
+        <table id='set'>
+          <tr class='headRow'>
+            <th>Due Date</th>
+            <th>Task</th>
+            <th>Color</th>
+            <th>Done?</th>
+            <th>Remove?</th>
+            <th>Up/Down</th>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <script src='js/jquery-1.10.2.min.js'></script>
+    <script src='js/underscore-min.js'></script>
+    <script src='js/main.js'></script>
+  </body>
+</html>
