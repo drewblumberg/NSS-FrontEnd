@@ -1,8 +1,20 @@
 .photo {
   float: left;
-  width: 250px;
-  height: 250px;
+  width: 200px;
+  height: 200px;
   border: 1px solid #cccccc;
   margin: 10px;
   background-size: cover;
+}
+
+.selected {
+  border: 2px solid red;
+}
+
+#photos {
+  border-right: 1px solid black;
+}
+
+.clear {
+  clear: both;
 }

@@ -9,7 +9,14 @@ function initialize(){
 
   $('#clear').click(function() {$('#photos').empty();});
 
+  $('#delete').click(deleteSelected);
+
+  $('#save').click(moveToSaved);
+
   $('#photos').on('dblclick', '.photo', function (){$(this).remove();});
+
+  $('#photos').on('click', '.photo', addBorder);
+
 
 }
 
@@ -34,5 +41,22 @@ function createImage(photo) {
   var $div = $('<div>');
   $div.addClass('photo').css('background-image', url);
   $('#photos').prepend($div);
+}
+
+function addBorder() {
+  var $this = $(this);
+
+  // $this.hasClass('selected') ? $this.removeClass('selected') : $this.addClass('selected');
+  $this.toggleClass('selected');
+}
+
+function deleteSelected() {
+  $('.selected').remove();
+}
+
+function moveToSaved() {
+  var $saved = $('.selected');
+  $saved.removeClass('selected');
+  $('#saved_photos').append($saved);
 }
 

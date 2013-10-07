@@ -23,11 +23,20 @@
     <div class='small-10 columns'>
       <input class='button radius small' id='search' type='button' value='Search Flickr!'>
       <input class='button alert radius small' id='clear' type='button' value='Clear Photos'>
+      <input class='button alert radius small' id='delete' type='button' value='Delete Selected'>
+      <input class='button success radius small' id='save' type='button' value='Save'>
     </div>
   </div>
   <div class='row'>
-    <div class='small-12 columns'>
-      <div id='photos'></div>
+    <div class='small-8 columns'>
+      <h4 class='subheader'>Search Photos</h4>
+      <div id='photos'>
+        <div class='clear'></div>
+      </div>
+    </div>
+    <div class='small-4 columns'>
+      <h4 class='subheader'>Saved Photos</h4>
+      <div id='saved_photos'></div>
     </div>
   </div>
   <script src='js/vendor/jquery-1.10.2.js'></script>
