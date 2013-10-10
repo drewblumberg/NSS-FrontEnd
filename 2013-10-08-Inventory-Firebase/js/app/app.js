@@ -1,7 +1,14 @@
 'use strict';
 
-var Δdb, Δitems;
-var items, sum = 0;
+// DB schema
+var Δdb, Δitems, Δperson, Δstatistics;
+
+// Local Schema
+var db = {};
+db.person = {};
+db.items = [];
+db.statistics = {};
+db.statistics.grandTotal = 0;
 
 $(document).ready(initialize);
 
@@ -14,39 +21,45 @@ function initialize() {
 
   Δdb = new Firebase('https://db-inventory.firebaseIO.com/');
   Δitems = Δdb.child('items');
-  Δdb.once('value', receivedDbData);
-  Δitems.on('child_added', childAdded);
+  Δperson = Δdb.child('person');
+  Δperson.on('value', personChanged);
+  Δitems.on('child_added', itemAdded);
 
 }
 
-function childAdded(snapshot) {
+function itemAdded(snapshot) {
   var item = snapshot.val();
+  db.items.push(item);
   addRow(item);
-
   updateGrandTotal(item);
 }
 
 function updateGrandTotal(item) {
-  sum += (item.value * item.count);
-  $('#total').text('$' + sum + '.00');
+  db.statistics.grandTotal += (item.value * item.count);
+  $('#total').text('$' + db.statistics.grandTotal + '.00');
 }
 
-function receivedDbData(snapshot) {
-  var inventory = snapshot.val();
-  $('#person').val(inventory.name);
-  $('#address').val(inventory.address);
+function personChanged(snapshot) {
+  var person = snapshot.val();
 
-  items = [];
+  try {
+    $('#person').val(person.name);
+    $('#address').val(person.address);
+  } catch (e) {
+    console.log(e.message);
+  }
+
+  db.person = person;
 }
 
 function save() {
   var name = $('#person').val();
   var address = $('#address').val();
-  var inventory = {};
-  inventory.name = name;
-  inventory.address = address;
+  var person = {};
+  person.name = name;
+  person.address = address;
 
-  Δdb.update(inventory);
+  Δperson.set(person);
 }
 
 function addRow(dbItem) {
