@@ -1,0 +1,76 @@
+!!! 5
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+%head
+  %meta{charset: "utf-8"}
+  %meta{name: "viewport", content: "width=device-width"}
+  %title Stock Market
+  %link{rel: "stylesheet", href: "css/normalize.css"}
+  %link{rel: "stylesheet", href: "css/foundation.css"}
+  %link{rel: "stylesheet", href: "css/app.css"}
+  %script{src: "js/vendor/custom.modernizr.js"}
+%body
+  .row
+    .small-12.columns
+      %h1 MyStocks &copy;
+  .row
+    .small-12.large-2.columns
+      %input#funds{type: 'text', placeholder: 'Funds'}
+    .small-12.large-2.columns
+      %input#set_funds.button.small.radius.success{type: 'button', value: 'Add funds'}
+    .large-8.columns
+  .row
+    .small-6.large-2.columns
+      %input#symbol{type: 'text', placeholder: 'Symbol, ie. GOOG'}
+    .small-6.large-2.columns
+      %input#quantity{type: 'text', placeholder: '# of Shares'}
+    .small-12.large-1.columns
+      %input#buy.button.success.radius.small{type: 'button', value: 'Buy'}
+    .small-12.large-2.columns
+      %input#timer{type: 'text', placeholder: 'Refresh Rate in s'}
+    .small-12.large-1.columns
+      %input#set_timer.button.radius.small{type: 'button', value: 'Set'}
+    .large-4.columns
+  .row
+    .small-6.large-2.columns
+      %h6.subheader Account Balance
+    .small-6.large-2.columns
+      %h6#balance.subheader
+    .large-8.columns
+  .row
+    .small-6.large-2.columns
+      %h6.subheader Cash in Stocks
+    .small-6.large-2.columns
+      %h6#balance.subheader
+    .large-8.columns
+  .row
+    .small-12.large-4.columns
+      %input#liquidate.button.alert.radius.small{type: 'button', value: 'Liquidate Stocks'}
+    .large-8.columns
+  .row
+    .small-12.columns
+      %h2#list Stock List
+  .row
+    .small-12.large-12.columns
+      %table#stocks
+        %tr
+          %th.head Name
+          %th.head Symbol
+          %th.head Quote
+          %th.head Purchased
+          %th.head Total
+          %th.head Profit/Loss
+
+
+
+
+
+
+
+
+  %script{src: 'js/vendor/jquery-1.10.2.js'}
+  %script{src: 'js/vendor/foundation.min.js'}
+  %script{src: 'js/vendor/underscore.js'}
+  %script{src: 'js/vendor/moment.min.js'}
+  %script{src: 'https://cdn.firebase.com/v0/firebase.js'}
+  %script{src: 'js/app/app.js'}
