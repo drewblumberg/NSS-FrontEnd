@@ -1,0 +1,22 @@
+#left
+  #map-canvas
+#right
+  .row
+    .small-12.columns
+      %h1 Vacation Map
+  .row
+    .small-6.columns
+      %input#zoom{type: 'text', placeholder: '10'}
+    .small-6.columns
+      %input#set_zoom.small.button.radius{type: 'button', value: 'Set Zoom'}
+  .row
+    .small-6.columns
+      %input#add{type: 'text', placeholder: 'New York'}
+    .small-6.columns
+      %input#set_add.small.button.radius{type: 'button', value: 'Add Location'}
+  .row
+    .small-7.columns
+      %select#locations
+        %option Select a Location
+    .small-5.columns
+      %input#set_location.small.button.radius.success{type: 'button', value: 'Show'}
