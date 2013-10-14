@@ -1,0 +1,46 @@
+#liquidate, #buy, #set_funds, #set_timer {
+  width: 100%; }
+
+#stocks {
+  width: 100%;
+  text-align: center; }
+
+#list {
+  padding-bottom: 5px;
+  border-bottom: 2px solid black; }
+
+.head {
+  text-decoration: underline; }
+
+.bar_container {
+  width: 55px;
+  height: 200px;
+  position: relative; }
+
+.bar {
+  width: 55px;
+  height: 0;
+  background: url(../img/bar_green.png);
+  position: absolute;
+  bottom: 0; }
+
+.symbol_image {
+  width: 55px;
+  height: 55px;
+  background-size: cover; }
+  .symbol_image span {
+    color: white;
+    -webkit-transform: rotate(-90deg);
+    position: absolute;
+    margin-top: 20px;
+    margin-left: 25px; }
+
+.stockblock {
+  float: left;
+  margin-right: 30px; }
+
+.sell input {
+  width: 55px; }
+
+.symbol2 {
+  margin-left: 3px; }
