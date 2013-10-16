@@ -1,0 +1,50 @@
+html, body {
+  height: 100%
+}
+
+body {
+  background-color: #252525;
+}
+
+#left, #right {
+  float: left;
+}
+
+#left {
+  width: 85%;
+  height: 100%;
+}
+
+#right {
+  width: 15%;
+}
+
+#map-canvas
+{
+  width: 100%;
+  height: 100%;
+}
+
+#start, #stop, #erase {
+  width: 100%;
+  padding: 30px;
+  font-size: 30px;
+}
+
+#start {
+  margin-top: 15px;
+}
+
+#debug {
+  color: white;
+}
+
+@media only screen and (max-device-width: 640px) {
+  #left {
+    width: 50%;
+  }
+
+  #right {
+    width: 50%;
+  }
+}
