@@ -1,0 +1,26 @@
+#calculate {
+  width: 100%;
+  padding: 6px; }
+
+#main {
+  margin-top: 10px; }
+
+#operator {
+  text-align: center; }
+
+.row h2 {
+  border-bottom: 1px solid black;
+  padding-bottom: 10px; }
+
+#history {
+  list-style: none; }
+  #history li {
+    font-size: 25px; }
+    #history li:nth-child(even) {
+      background-color: gainsboro; }
+
+.remove {
+  margin-left: 5px;
+  padding: 3;
+  color: white;
+  background-color: #FF0000; }

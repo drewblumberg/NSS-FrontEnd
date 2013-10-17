@@ -1,0 +1,38 @@
+#calculate {
+  width: 100%;
+  padding: 6px;
+}
+
+#main {
+  margin-top: 10px;
+}
+
+#operator {
+  text-align: center;
+}
+
+.row h2 {
+  border-bottom: 1px solid black;
+  padding-bottom: 10px;
+}
+
+#history {
+  list-style: none;
+
+  li {
+    font-size: 25px;
+
+    &:nth-child(even) {
+      background-color: rgb(220,220,220);
+    }
+  }
+
+
+}
+
+.remove {
+  margin-left: 5px;
+  padding: 3;
+  color: white;
+  background-color: #FF0000;
+}
