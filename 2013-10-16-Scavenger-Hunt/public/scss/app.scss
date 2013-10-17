@@ -1,0 +1,49 @@
+html, body, #right, #left, #map-canvas {
+  height: 100%;
+}
+
+#map-canvas
+{
+  width: 100%;
+}
+
+#left, #right {
+  float: left;
+}
+
+#left {
+  width: 80%;
+}
+
+#right {
+  width: 20%;
+  background-color: #252525;
+}
+
+h3 {
+  color: white;
+}
+
+#start, #stop, #add, #secret {
+  margin-left: 10%;
+  width: 80%;
+  padding: 30px;
+  font-size: 30px;
+}
+
+#secret {
+  padding: 15px;
+  font-size: 15px;
+}
+
+@media only screen and (max-device-width: 640px) {
+  #left, #right {
+    width: 50%;
+  }
+
+  #start, #stop, #add, #secret {
+  width: 100%;
+  padding: 30px;
+  font-size: 30px;
+  }
+}
