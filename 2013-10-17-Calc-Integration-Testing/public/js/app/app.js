@@ -96,16 +96,13 @@ function sumResults() {
 
 function multiplyResults() {
   var results = $('#history .result');
+  if(results.length === 0) {return 0;}
   results = _.map(results, function(result) {return parseFloat($(result).text());});
   var product = 1;
   for (var i = 0; i < results.length; i++) {
     product *= results[i];
   }
-  if (product === 1) {
-    return 0;
-  } else {
-    return product;
-  }
+  return product;
 }
 
 

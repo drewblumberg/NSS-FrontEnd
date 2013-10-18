@@ -117,7 +117,7 @@ test('Remove negative lines from the history', function() {
   $('#removeNeg').trigger('click');
   ok($('#history li').length === 2, 'Now only 2 rows');
   ok($('#history li:first-child .result').text() === '5', 'First row result is 5');
-  ok($('#history li:nth-child(2) .result').text() === '10', 'Secpnd row result is 10');
+  ok($('#history li:nth-child(2) .result').text() === '10', 'Second row result is 10');
 });
 
 test('Remove positive lines from the history', function() {
