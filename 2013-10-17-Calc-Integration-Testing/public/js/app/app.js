@@ -11,6 +11,10 @@ function initialize(fn, flag){
   $('#op1').focus();
 
   $('#calculate').click(calcNumbers);
+  $('#sumResults').click(sumNumbers);
+  $('#multiplyResults').click(multiplyNumbers);
+  $('#removeNeg').click(removeNegativeResults);
+  $('#removePos').click(removePositiveResults);
 
   $('#history').on('click', '.remove', removeListItem);
 }
@@ -18,6 +22,29 @@ function initialize(fn, flag){
 // -------------------------------------------------------------------- //
 // -------------------------------------------------------------------- //
 // -------------------------------------------------------------------- //
+function removeNegativeResults() {
+  var results = $('#history .result');
+  var negatives = _.filter(results, function(result) {return $(result).text() < 0;});
+  _.each(negatives, function(negative) {$(negative).parent().remove();});
+}
+
+
+function removePositiveResults() {
+  var results = $('#history .result');
+  var positives = _.filter(results, function(result) {return $(result).text() >= 0;});
+  _.each(positives, function(positive) {$(positive).parent().remove();});
+}
+
+function sumNumbers() {
+  var sum = sumResults();
+  $('#sum').text(sum);
+}
+
+function multiplyNumbers() {
+  var product = multiplyResults();
+  $('#product').text(product);
+}
+
 
 function calcNumbers() {
   var calc = {};
@@ -59,6 +86,28 @@ function calcNumbers() {
 // -------------------------------------------------------------------- //
 // -------------------------------------------------------------------- //
 // -------------------------------------------------------------------- //
+
+function sumResults() {
+  var results = $('#history .result');
+  results = _.map(results, function(result) {return parseFloat($(result).text());});
+  var sum = _.reduce(results, function(memo, num){ return memo + num; }, 0);
+  return sum;
+}
+
+function multiplyResults() {
+  var results = $('#history .result');
+  results = _.map(results, function(result) {return parseFloat($(result).text());});
+  var product = 1;
+  for (var i = 0; i < results.length; i++) {
+    product *= results[i];
+  }
+  if (product === 1) {
+    return 0;
+  } else {
+    return product;
+  }
+}
+
 
 function htmlAddHistory(calc) {
   var $li = $('<li><span class="op1"></span> <span class="operator"></span> <span class="op2"></span> = <span class="result"></span></li>');

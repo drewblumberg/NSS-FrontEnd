@@ -1,6 +1,14 @@
-#calculate {
+#removePos, #removeNeg, #multiplyResults, #calculate, #sum, #sumResults {
   width: 100%;
   padding: 6px;
+}
+
+#removeNeg, #removePos {
+  margin-top: 20px;
+}
+
+#result {
+  margin-bottom: 30px;
 }
 
 #main {

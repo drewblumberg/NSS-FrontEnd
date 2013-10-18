@@ -14,7 +14,24 @@
       #result
   .row
     .small-12.columns
+      %h3.subheader Advanced Controls
+    .small-2.columns
+      %input#sumResults.button.small.radius{type: 'button', value: 'Sum'}
+    .small-1.columns
+      #sum
+    .small-2.columns
+      %input#multiplyResults.button.small.radius{type: 'button', value: 'Product'}
+    .small-1.columns
+      #product
+    .small-6.columns
+  .row
+    .small-4.columns
       %h2 History
+    .small-2.columns
+      %input#removeNeg.button.alert.small.radius{type: 'button', value: 'Remove Negatives'}
+    .small-2.columns
+      %input#removePos.button.alert.small.radius{type: 'button', value: 'Remove Positives'}
+    .small-4.columns
   .row
     .small-12.columns
       %ul#history
