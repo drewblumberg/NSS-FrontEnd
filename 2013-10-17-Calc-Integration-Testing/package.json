@@ -1,0 +1,11 @@
+{
+  "name": "nss-automation",
+  "version": "0.1.1",
+  "repository" : {
+    "type": "git",
+    "url": "https://github.com/drewblumberg/NSS-FrontEnd.git"
+  },
+  "devDependencies": {
+    "grunt": "0.4.x"
+  }
+}
