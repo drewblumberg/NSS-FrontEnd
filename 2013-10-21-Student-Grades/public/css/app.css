@@ -1,0 +1,8 @@
+body {
+  margin-top: 10px; }
+
+#schools {
+  list-style: none; }
+
+select {
+  padding: 5px; }
