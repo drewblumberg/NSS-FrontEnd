@@ -7,6 +7,10 @@ function setupTest(){
   turnHandlersOn();
   // Reset Global Variables Here
   db.products = [];
+  db.customers = [];
+  db.orders = [];
+  db.pagination.currentPage = 1;
+  db.pagination.currentRowCount = 0;
   // Clean Out Test Database Here
   Δdb.remove();
 }
@@ -40,3 +44,56 @@ test('Add Product', function(){
 
 
 });
+
+test('Product Pagination', function(){
+  expect(18);
+
+  for(var i = 0; i < 12; i++) {
+    var name = Math.random().toString(36).substring(2);
+    var image = Math.random().toString(36).substring(2) + '.png';
+    var weight = Math.random() * 100;
+    var price = Math.random() * 1000;
+    var off = Math.random() * 100;
+
+    createTestProduct(name, image, weight, price, off);
+  }
+
+  equal(db.products.length, 12, 'Should have 12 products');
+  equal(db.pagination.perPage, 5, 'Should be 5 products per page');
+  equal(db.pagination.currentPage, 1, 'Should be on first page');
+  equal($('#products tr').length, 6, 'There should be 5 products in table');
+  equal($('#prev.hidden').length, 1, 'The previous button should be hidden');
+  equal($('#next:not(.hidden)').length, 1, 'The next button should be visible');
+
+  $('#next').trigger('click');
+
+  equal(db.pagination.currentPage, 2, 'Should be on second page');
+  equal($('#products tr').length, 6, 'There should be 5 products in table');
+  equal($('#prev:not(.hidden)').length, 1, 'The previous button should be visible');
+  equal($('#next:not(.hidden)').length, 1, 'The next button should be visible');
+
+  $('#next').trigger('click');
+
+  equal(db.pagination.currentPage, 3, 'Should be on third page');
+  equal($('#products tr').length, 3, 'There should be 2 products in table');
+  equal($('#prev:not(.hidden)').length, 1, 'The previous button should be visible');
+  equal($('#next.hidden').length, 1, 'The next button should be hidden');
+
+
+  $('#prev').trigger('click');
+  $('#prev').trigger('click');
+
+  equal(db.pagination.currentPage, 1, 'Should be on first page');
+  equal($('#products tr').length, 6, 'There should be 5 products in table');
+  equal($('#prev.hidden').length, 1, 'The previous button should be hidden');
+  equal($('#next:not(.hidden)').length, 1, 'The next button should be visible');
+});
+
+function createTestProduct(name, image, weight, price, off) {
+  $('#product-name').val(name);
+  $('#product-image').val(image);
+  $('#product-weight').val(weight);
+  $('#product-price').val(price);
+  $('#product-off').val(off);
+  $('#add-product').trigger('click');
+}

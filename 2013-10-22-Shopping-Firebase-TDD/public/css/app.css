@@ -22,3 +22,6 @@ body, html {
   #right img {
     width: 50px;
     width: 50px; }
+
+.hidden {
+  display: none; }

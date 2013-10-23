@@ -21,11 +21,18 @@
     .small-12.columns
       %h1 Product List
   .row
-    %table#products
-      %tr
-        %th Name
-        %th Image
-        %th Weight
-        %th Price
-        %th % Off
-        %th Sale
+    .small-12.columns
+      %table#products
+        %tr.head
+          %th Name
+          %th Image
+          %th Weight
+          %th Price
+          %th % Off
+          %th Sale
+  .row
+    .small-2.columns
+      #prev.hidden <==
+    .small-2.columns
+      #next.hidden ==>
+
