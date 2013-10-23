@@ -1,0 +1,31 @@
+#left
+  .row
+    .small-12.columns
+      %h3 Add Product
+  .row
+    .small-12.columns
+      %input#product-image.expand{type: 'text', placeholder: 'Enter image...'}
+    .small-12.columns
+      %input#product-name.expand{type: 'text', placeholder: 'Enter name...'}
+    .small-12.columns
+      %input#product-price.expand{type: 'text', placeholder: 'Enter price...'}
+    .small-12.columns
+      %input#product-off.expand{type: 'text', placeholder: 'Enter percent off...'}
+    .small-12.columns
+      %input#product-weight.expand{type: 'text', placeholder: 'Enter weight...'}
+  .row
+    .small-12.columns
+      %input#add-product.button.success.small.radius.expand{type: 'button', value: 'Add Product'}
+#right
+  .row
+    .small-12.columns
+      %h1 Product List
+  .row
+    %table#products
+      %tr
+        %th Name
+        %th Image
+        %th Weight
+        %th Price
+        %th % Off
+        %th Sale

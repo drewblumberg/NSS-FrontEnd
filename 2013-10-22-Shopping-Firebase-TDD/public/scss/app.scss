@@ -1,0 +1,36 @@
+body, html {
+  height: 100%;
+}
+
+#left, #right {
+  float: left;
+}
+
+#left {
+  width: 25%;
+  height: 100%;
+  border-right: 1px solid black;
+}
+
+#right {
+  width: 75%;
+  height: 100%;
+
+  #products {
+    width: 100%;
+
+    tr {
+      line-height: 30px;
+      text-align: center;
+
+      th {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  img {
+    width: 50px;
+    width: 50px;
+  }
+}
