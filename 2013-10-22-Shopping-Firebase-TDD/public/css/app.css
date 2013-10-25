@@ -8,20 +8,33 @@ body, html {
   width: 25%;
   height: 100%;
   border-right: 1px solid black; }
+  #left .row:nth-child(3) {
+    border-bottom: 1px solid black; }
 
 #right {
   width: 75%;
-  height: 100%; }
-  #right #products {
+  height: 100%;
+  overflow: auto; }
+  #right #products, #right #cart {
     width: 100%; }
-    #right #products tr {
+    #right #products tr, #right #cart tr {
       line-height: 30px;
       text-align: center; }
-      #right #products tr th {
+      #right #products tr th, #right #cart tr th {
         text-decoration: underline; }
   #right img {
     width: 50px;
     width: 50px; }
+  #right .row:nth-child(3) {
+    padding-bottom: 15px;
+    border-bottom: 1px solid black; }
+  #right select {
+    padding: 5px; }
+  #right #purchase {
+    margin-top: 17px; }
 
 .hidden {
   display: none; }
+
+#cart tr td, #cart tr th {
+  text-align: center; }

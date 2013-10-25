@@ -4,7 +4,17 @@
 var Δdb, Δproducts, Δcustomers, Δorders;
 
 // Local Schema (defined in keys.js)
-db.products = db.customers = db.orders = [];
+db.products = [];
+db.customers = [];
+db.orders = [];
+db.cart = {};
+db.cart.products = [];
+db.cart.totals = {};
+db.cart.totals.count = 0;
+db.cart.totals.amount = 0;
+db.cart.totals.weight = 0;
+db.cart.totals.shipping = 0;
+db.cart.totals.grand = 0;
 db.pagination = {};
 db.pagination.perPage = 5;
 db.pagination.currentPage = 1;
@@ -36,8 +46,12 @@ function dbProductAdded(snapshot) {
   }
 }
 
-function dbCustomerAdded() {
-
+function dbCustomerAdded(snapshot) {
+  var obj = snapshot.val();
+  var customer = new Customer(obj.name, obj.image, obj.isDomestic);
+  customer.id = snapshot.name();
+  db.customers.push(customer);
+  $('#select-customer').prepend($('<option>').val(customer.name).text(customer.name));
 }
 
 function dbOrderAdded() {
@@ -47,6 +61,35 @@ function dbOrderAdded() {
 // Click Handlers------------------------------------------------------ //
 // -------------------------------------------------------------------- //
 // -------------------------------------------------------------------- //
+
+function addProductToCart() {
+  var productName = $(this).parent().parent().children('.product-name').text();
+  var product = _.find(db.products, function(p) { return p.name === productName;});
+  var isAdded = _.find(db.cart.products, function(p){ return p.name === productName; }) === undefined ? false : true;
+
+  if(db.customers.length) {
+    if(!db.cart.customer) {
+      db.cart.customer = _.find(db.customers, function(cust) { return cust.name === $('#select-customer').val();});
+    }
+
+    db.cart.products.push(product);
+    db.cart.totals.count++;
+    db.cart.totals.amount += product.salePrice();
+    db.cart.totals.weight += product.weight;
+
+    var shippingCost = db.cart.customer.isDomestic ? 0.5 : 1.5;
+    db.cart.totals.shipping += product.weight * shippingCost;
+    db.cart.totals.grand = db.cart.totals.amount + db.cart.totals.shipping;
+
+    if(!isAdded) {
+      htmlAddCartRow(product, shippingCost);
+    } else {
+      htmlUpdateCartRow(product, shippingCost);
+    }
+
+    updateFooter();
+  }
+}
 
 function clickAddProduct() {
   var name = $('#product-name').val();
@@ -59,6 +102,18 @@ function clickAddProduct() {
   delete product.salePrice;
 
   Δproducts.push(product);
+}
+
+function clickAddCustomer() {
+  var name = $('#customer-name').val();
+  var image = $('#customer-image').val();
+  var isDomestic = $('input[name="address"]:checked').attr('id') === 'domestic';
+
+  var customer = new Customer(name, image, isDomestic);
+  Δcustomers.push(customer);
+
+  $('#domestic').prop('checked', false);
+  $('#international').prop('checked', false);
 }
 
 function clickNextButton() {
@@ -112,6 +167,43 @@ function clickPrevButton() {
 // -------------------------------------------------------------------- //
 // -------------------------------------------------------------------- //
 
+function htmlAddCartRow(product, shippingCost) {
+  var $tr = $('<tr>');
+  $tr.append($('<td>').addClass('cartlist-name').text(product.name));
+  $tr.append($('<td>').addClass('cartlist-count').text('1'));
+  $tr.append($('<td>').addClass('cartlist-amount').text(formatCurrency(product.salePrice())));
+  $tr.append($('<td>').addClass('cartlist-weight').text(product.weight + ' lbs'));
+  $tr.append($('<td>').addClass('cartlist-shipping').text(formatCurrency(shippingCost)));
+  $tr.append($('<td>').addClass('cartlist-total').text(formatCurrency(product.weight * shippingCost + product.salePrice())));
+
+  $('#cart tbody').append($tr);
+}
+
+function htmlUpdateCartRow(product, shippingCost) {
+  var $row = $('#cart .cartlist-name:contains(' + product.name + ')').parent();
+  var currentCount = parseFloat($row.children('.cartlist-count').text());
+  var currentAmount = parseFloat($row.children('.cartlist-amount').text().slice(1));
+  var currentWeight = parseFloat($row.children('.cartlist-weight').text().slice(0, -4));
+  var currentShipping = parseFloat($row.children('.cartlist-shipping').text().slice(1));
+  var currentTotal = parseFloat($row.children('.cartlist-total').text().slice(1));
+
+  $row.children('.cartlist-count').text(currentCount + 1);
+  $row.children('.cartlist-amount').text(formatCurrency(currentAmount + product.salePrice()));
+  $row.children('.cartlist-weight').text((product.weight + currentWeight) + ' lbs');
+  $row.children('.cartlist-shipping').text(formatCurrency(currentShipping + shippingCost));
+  $row.children('.cartlist-total').text(formatCurrency(currentTotal + (product.weight * shippingCost + product.salePrice())));
+}
+
+function updateFooter() {
+  var $footer = $('#cart tfoot tr');
+
+  $footer.children('.cart-count').text(db.cart.totals.count);
+  $footer.children('.cart-amount').text(formatCurrency(db.cart.totals.amount));
+  $footer.children('.cart-weight').text(db.cart.totals.weight + ' lbs');
+  $footer.children('.cart-shipping').text(formatCurrency(db.cart.totals.shipping));
+  $footer.children('.cart-total').text(formatCurrency(db.cart.totals.grand));
+}
+
 function htmlAddProductRow(product) {
   db.pagination.currentRowCount++;
   var $tr = $('<tr>');
@@ -140,6 +232,12 @@ function Product(name, image, price, off, weight) {
   };
 }
 
+function Customer(name, image, isDomestic) {
+  this.name = name;
+  this.image = image;
+  this.isDomestic = isDomestic;
+}
+
 // -------------------------------------------------------------------- //
 // -------------------------------------------------------------------- //
 
@@ -156,14 +254,18 @@ function initializeDatabase(){
 
 function turnHandlersOn(){
   $('#add-product').on('click', clickAddProduct);
+  $('#add-customer').on('click', clickAddCustomer);
   $('#next').on('click', clickNextButton);
   $('#prev').on('click', clickPrevButton);
+  $('#products').on('click', '.product-image img' ,addProductToCart);
 }
 
 function turnHandlersOff(){
   $('#add-product').off('click');
+  $('#add-customer').off('click');
   $('#next').off('click');
   $('#prev').off('click');
+  $('#products').off('click', '.product-image img');
 }
 
 // -------------------------------------------------------------------- //

@@ -16,6 +16,21 @@
   .row
     .small-12.columns
       %input#add-product.button.success.small.radius.expand{type: 'button', value: 'Add Product'}
+  .row
+    .small-12.columns
+      %h3 Add Customer
+  .row
+    .small-12.columns
+      %input#customer-image.expand{type: 'text', placeholder: 'Enter image...'}
+    .small-12.columns
+      %input#customer-name.expand{type: 'text', placeholder: 'Enter name...'}
+    .small-6.columns
+      %input#domestic{type: 'radio', name: 'address'} Domestic
+    .small-6.columns
+      %input#international{type: 'radio', name: 'address'} International
+  .row
+    .small-12.columns
+      %input#add-customer.button.success.small.radius.expand{type: 'button', value: 'Add Customer'}
 #right
   .row
     .small-12.columns
@@ -35,4 +50,32 @@
       #prev.hidden <==
     .small-2.columns
       #next.hidden ==>
+  .row
+    .small-4.columns
+      %h2 Shopping Cart
+    .small-2.columns
+      %input#purchase.button.small.radius.expand{type: 'button', value: 'Purchase'}
+  .row
+    .small-3.columns
+      %select#select-customer
+    .small-9.columns
+      %table#cart
+        %thead
+          %tr
+            %th Name
+            %th Count
+            %th Amount
+            %th Weight
+            %th Shipping
+            %th Total
+        %tbody
+        %tfoot
+          %tr
+            %td Totals
+            %td.cart-count
+            %td.cart-amount
+            %td.cart-weight
+            %td.cart-shipping
+            %td.cart-total
+
 

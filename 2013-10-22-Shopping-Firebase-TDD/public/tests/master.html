@@ -43,6 +43,30 @@
           <input class='button success small radius expand' id='add-product' type='button' value='Add Product'>
         </div>
       </div>
+      <div class='row'>
+        <div class='small-12 columns'>
+          <h3>Add Customer</h3>
+        </div>
+      </div>
+      <div class='row'>
+        <div class='small-12 columns'>
+          <input class='expand' id='customer-image' placeholder='Enter image...' type='text'>
+        </div>
+        <div class='small-12 columns'>
+          <input class='expand' id='customer-name' placeholder='Enter name...' type='text'>
+        </div>
+        <div class='small-6 columns'>
+          <input id='domestic' name='address' type='radio'>Domestic</input>
+        </div>
+        <div class='small-6 columns'>
+          <input id='international' name='address' type='radio'>International</input>
+        </div>
+      </div>
+      <div class='row'>
+        <div class='small-12 columns'>
+          <input class='button success small radius expand' id='add-customer' type='button' value='Add Customer'>
+        </div>
+      </div>
     </div>
     <div id='right'>
       <div class='row'>
@@ -70,6 +94,44 @@
         </div>
         <div class='small-2 columns'>
           <div class='hidden' id='next'>==></div>
+        </div>
+      </div>
+      <div class='row'>
+        <div class='small-4 columns'>
+          <h2>Shopping Cart</h2>
+        </div>
+        <div class='small-2 columns'>
+          <input class='button small radius expand' id='purchase' type='button' value='Purchase'>
+        </div>
+      </div>
+      <div class='row'>
+        <div class='small-3 columns'>
+          <select id='select-customer'></select>
+        </div>
+        <div class='small-9 columns'>
+          <table id='cart'>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Count</th>
+                <th>Amount</th>
+                <th>Weight</th>
+                <th>Shipping</th>
+                <th>Total</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+            <tfoot>
+              <tr>
+                <td>Totals</td>
+                <td class='cart-count'></td>
+                <td class='cart-amount'></td>
+                <td class='cart-weight'></td>
+                <td class='cart-shipping'></td>
+                <td class='cart-total'></td>
+              </tr>
+            </tfoot>
+          </table>
         </div>
       </div>
     </div>

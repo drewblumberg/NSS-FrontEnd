@@ -10,13 +10,18 @@ body, html {
   width: 25%;
   height: 100%;
   border-right: 1px solid black;
+
+  .row:nth-child(3) {
+    border-bottom: 1px solid black;
+  }
 }
 
 #right {
   width: 75%;
   height: 100%;
+  overflow: auto;
 
-  #products {
+  #products, #cart {
     width: 100%;
 
     tr {
@@ -33,8 +38,25 @@ body, html {
     width: 50px;
     width: 50px;
   }
+
+  .row:nth-child(3) {
+    padding-bottom: 15px;
+    border-bottom: 1px solid black;
+  }
+
+  select {
+    padding: 5px;
+  }
+
+  #purchase {
+    margin-top: 17px;
+  }
 }
 
 .hidden {
   display: none;
+}
+
+#cart tr td, #cart tr th{
+  text-align: center;
 }
