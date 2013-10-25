@@ -54,8 +54,13 @@ function dbCustomerAdded(snapshot) {
   $('#select-customer').prepend($('<option>').val(customer.name).text(customer.name));
 }
 
-function dbOrderAdded() {
-
+function dbOrderAdded(snapshot) {
+  var obj = snapshot.val();
+  var id = snapshot.name();
+  var order = new Order(obj.time, obj.customer, obj.products, obj.total, obj.shipping, obj.grand);
+  order.id = id;
+  db.orders.push(order);
+  addOrderToTable(order);
 }
 
 // Click Handlers------------------------------------------------------ //
@@ -70,6 +75,7 @@ function addProductToCart() {
   if(db.customers.length) {
     if(!db.cart.customer) {
       db.cart.customer = _.find(db.customers, function(cust) { return cust.name === $('#select-customer').val();});
+      $('#cart').removeClass('hidden');
     }
 
     db.cart.products.push(product);
@@ -114,6 +120,25 @@ function clickAddCustomer() {
 
   $('#domestic').prop('checked', false);
   $('#international').prop('checked', false);
+}
+
+function clickPurchaseButton() {
+  if(db.cart.products) {
+    $('#cart tbody tr').remove();
+    $('#cart tfoot td:not(:first)').empty();
+
+    var time = moment().format('MMMM Do YYYY, h:mm:ss a');
+    var customer = db.cart.customer.name;
+    var products = db.cart.products;
+    var total = db.cart.totals.amount;
+    var shipping = db.cart.totals.shipping;
+    var grand = db.cart.totals.grand;
+
+    var order = new Order(time, customer, products, total, shipping, grand);
+    Δorders.push(order);
+
+    resetCart();
+  }
 }
 
 function clickNextButton() {
@@ -217,6 +242,31 @@ function htmlAddProductRow(product) {
   $('#products').append($tr);
 }
 
+function addOrderToTable(order) {
+  var $tr = $('<tr>');
+  $tr.append($('<td>').addClass('order-id').text(order.id));
+  $tr.append($('<td>').addClass('order-time').text(order.time));
+  $tr.append($('<td>').addClass('order-customer').text(order.customer));
+  $tr.append($('<td>').append(createProductsListInOrder(order)));
+  $tr.append($('<td>').addClass('order-total').text(formatCurrency(order.total)));
+  $tr.append($('<td>').addClass('order-shipping').text(formatCurrency(order.shipping)));
+  $tr.append($('<td>').addClass('order-grand').text(formatCurrency(order.grand)));
+
+  $('#orders tbody').append($tr);
+  $('#cart').addClass('hidden');
+}
+
+function createProductsListInOrder(order) {
+  var $ol = $('<ol>');
+  _.each(order.products, function(p) {
+    $ol.append('<li>' + p.name + '</li>');
+  });
+
+  $ol.addClass('order-products-list');
+
+  return $ol;
+}
+
 // Objects------------------------------------------------------------- //
 // -------------------------------------------------------------------- //
 // -------------------------------------------------------------------- //
@@ -236,6 +286,17 @@ function Customer(name, image, isDomestic) {
   this.name = name;
   this.image = image;
   this.isDomestic = isDomestic;
+}
+
+function Order(time, customer, products, total, shipping, grand) {
+  // var order = new Order(time, customer, products, total, shipping, grand);
+  this.time = time;
+  this.customer = customer;
+  this.products = products;
+  _.each(this.products, function (p) { delete p.salePrice;});
+  this.total = total;
+  this.shipping = shipping;
+  this.grand = grand;
 }
 
 // -------------------------------------------------------------------- //
@@ -258,6 +319,7 @@ function turnHandlersOn(){
   $('#next').on('click', clickNextButton);
   $('#prev').on('click', clickPrevButton);
   $('#products').on('click', '.product-image img' ,addProductToCart);
+  $('#purchase').on('click', clickPurchaseButton);
 }
 
 function turnHandlersOff(){
@@ -266,6 +328,7 @@ function turnHandlersOff(){
   $('#next').off('click');
   $('#prev').off('click');
   $('#products').off('click', '.product-image img');
+  $('#purchase').off('click');
 }
 
 // -------------------------------------------------------------------- //
@@ -274,4 +337,15 @@ function turnHandlersOff(){
 
 function formatCurrency(number){
   return '$' + number.toFixed(2);
+}
+
+function resetCart() {
+  db.cart = {};
+  db.cart.products = [];
+  db.cart.totals = {};
+  db.cart.totals.count = 0;
+  db.cart.totals.amount = 0;
+  db.cart.totals.weight = 0;
+  db.cart.totals.shipping = 0;
+  db.cart.totals.grand = 0;
 }

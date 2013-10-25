@@ -59,7 +59,7 @@
     .small-3.columns
       %select#select-customer
     .small-9.columns
-      %table#cart
+      %table#cart.hidden
         %thead
           %tr
             %th Name
@@ -77,5 +77,22 @@
             %td.cart-weight
             %td.cart-shipping
             %td.cart-total
+  .row
+    .small-4.columns
+      %h2 Orders
+  .row
+    .small-12.columns
+      %table#orders
+        %thead
+          %tr
+            %th Id
+            %th Time
+            %th Customer
+            %th Products
+            %th Total
+            %th Shipping
+            %th Grand Total
+        %tbody
+        %tfoot
 
 

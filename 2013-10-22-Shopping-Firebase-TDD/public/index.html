@@ -106,7 +106,7 @@
         <select id='select-customer'></select>
       </div>
       <div class='small-9 columns'>
-        <table id='cart'>
+        <table class='hidden' id='cart'>
           <thead>
             <tr>
               <th>Name</th>
@@ -128,6 +128,30 @@
               <td class='cart-total'></td>
             </tr>
           </tfoot>
+        </table>
+      </div>
+    </div>
+    <div class='row'>
+      <div class='small-4 columns'>
+        <h2>Orders</h2>
+      </div>
+    </div>
+    <div class='row'>
+      <div class='small-12 columns'>
+        <table id='orders'>
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Time</th>
+              <th>Customer</th>
+              <th>Products</th>
+              <th>Total</th>
+              <th>Shipping</th>
+              <th>Grand Total</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+          <tfoot></tfoot>
         </table>
       </div>
     </div>

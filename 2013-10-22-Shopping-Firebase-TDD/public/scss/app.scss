@@ -21,7 +21,7 @@ body, html {
   height: 100%;
   overflow: auto;
 
-  #products, #cart {
+  #products, #cart, #orders {
     width: 100%;
 
     tr {
@@ -39,7 +39,7 @@ body, html {
     width: 50px;
   }
 
-  .row:nth-child(3) {
+  .row:nth-child(3), .row:nth-child(5) {
     padding-bottom: 15px;
     border-bottom: 1px solid black;
   }
@@ -59,4 +59,13 @@ body, html {
 
 #cart tr td, #cart tr th{
   text-align: center;
+}
+
+
+#orders tr td, #orders tr th{
+  text-align: center;
+}
+
+#orders ol{
+  list-style-position:inside;
 }

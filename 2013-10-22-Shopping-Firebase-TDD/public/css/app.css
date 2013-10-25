@@ -15,17 +15,17 @@ body, html {
   width: 75%;
   height: 100%;
   overflow: auto; }
-  #right #products, #right #cart {
+  #right #products, #right #cart, #right #orders {
     width: 100%; }
-    #right #products tr, #right #cart tr {
+    #right #products tr, #right #cart tr, #right #orders tr {
       line-height: 30px;
       text-align: center; }
-      #right #products tr th, #right #cart tr th {
+      #right #products tr th, #right #cart tr th, #right #orders tr th {
         text-decoration: underline; }
   #right img {
     width: 50px;
     width: 50px; }
-  #right .row:nth-child(3) {
+  #right .row:nth-child(3), #right .row:nth-child(5) {
     padding-bottom: 15px;
     border-bottom: 1px solid black; }
   #right select {
@@ -38,3 +38,9 @@ body, html {
 
 #cart tr td, #cart tr th {
   text-align: center; }
+
+#orders tr td, #orders tr th {
+  text-align: center; }
+
+#orders ol {
+  list-style-position: inside; }

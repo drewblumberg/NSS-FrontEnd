@@ -176,6 +176,45 @@ test('Add Items to Shopping cart', function(){
 
 });
 
+test('Add Order', function(){
+  expect(13);
+  resetCart();
+
+  createTestProduct('iPad Air', 'ipad-air.png', 1, 500, 10);
+  createTestProduct('iPhone 5s', 'iphone.png', 0.5, 200, 0);
+  createTestProduct('Macbook Pro', 'mbp.png', 3.5, 1000, 15);
+  createTestCustomer('Bob', 'bob.png', true);
+  createTestCustomer('Sally', 'sally.png', false);
+
+  $('select#select-customer').val('Sally');
+
+  // Select 2 iPhone 5s phones
+  $('#products tr:nth-child(3) td.product-image img').trigger('click');
+  $('#products tr:nth-child(3) td.product-image img').trigger('click');
+
+  // 1 iPad Air
+  $('#products tr:nth-child(2) td.product-image img').trigger('click');
+
+  // 1 Macbook Pro
+  $('#products tr:nth-child(4) td.product-image img').trigger('click');
+  $('#purchase').trigger('click');
+
+  equal($('#cart tbody tr').length, 0, 'Should be no more rows in the cart body');
+  equal($('.cart-total').text(), '', 'Should be no text in the footer');
+  equal(db.orders.length, 1, 'Should be one order');
+  ok(db.orders[0] instanceof Order, 'Should be an instance of order');
+  ok(db.orders[0].id, 'Should have an id');
+  equal($('#orders thead th').length, 7, 'Should be 7 columns in orders table');
+  equal($('#orders tbody tr').length, 1, 'Should be 1 row in table body');
+  equal($('#orders tbody .order-time').text().split(' ').length, 5, 'Should be 5 elements in timestamp');
+  equal($('#orders tbody .order-customer').text(), 'Sally', 'Should be Sally as customer');
+  equal($('#orders tbody .order-total').text(), '$1700.00', 'Should be 1700 as total');
+  equal($('#orders tbody .order-shipping').text(), '$8.25', 'Should be 8.25 as shipping');
+  equal($('#orders tbody .order-grand').text(), '$1708.25', 'Should be 1708.25 as grand total');
+  equal($('#orders tbody .order-products-list li').length, 4, 'Should have 4 items in order');
+
+});
+
 function createTestProduct(name, image, weight, price, off) {
   $('#product-name').val(name);
   $('#product-image').val(image);
