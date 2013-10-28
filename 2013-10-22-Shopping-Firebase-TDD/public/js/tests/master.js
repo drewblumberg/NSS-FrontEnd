@@ -111,8 +111,6 @@ test('Add Customer', function(){
 test('Customer drop down', function(){
   expect(7);
 
-  // cart table: name, count, amount, weight, shipping, total
-
   for(var i = 0; i < 4; i++) {
     var name = Math.random().toString(36).substring(2);
     var image = Math.random().toString(36).substring(2) + '.png';

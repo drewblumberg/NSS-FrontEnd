@@ -128,7 +128,7 @@ function clickPurchaseButton() {
     $('#cart tfoot td:not(:first)').empty();
 
     var time = moment().format('MMMM Do YYYY, h:mm:ss a');
-    var customer = db.cart.customer.name;
+    var customer = db.cart.customer;
     var products = db.cart.products;
     var total = db.cart.totals.amount;
     var shipping = db.cart.totals.shipping;
@@ -246,7 +246,7 @@ function addOrderToTable(order) {
   var $tr = $('<tr>');
   $tr.append($('<td>').addClass('order-id').text(order.id));
   $tr.append($('<td>').addClass('order-time').text(order.time));
-  $tr.append($('<td>').addClass('order-customer').text(order.customer));
+  $tr.append($('<td>').addClass('order-customer').text(order.customer.name));
   $tr.append($('<td>').append(createProductsListInOrder(order)));
   $tr.append($('<td>').addClass('order-total').text(formatCurrency(order.total)));
   $tr.append($('<td>').addClass('order-shipping').text(formatCurrency(order.shipping)));
