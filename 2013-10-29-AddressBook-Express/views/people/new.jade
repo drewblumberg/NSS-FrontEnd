@@ -1,0 +1,13 @@
+extends ../template/layout
+include ../mixins/form-helper
+block content
+  h1 Address Book
+  h2 New Person
+  //- p: a(title=home href='/') Home Page
+  p: a(title=people href='/people') People Page
+  form(action='/people', method='post')
+    mixin field('name', 'Full name', 'Enter name...', true)
+    mixin field('gender', 'Gender', 'Enter m or f', false)
+    mixin field('age', 'Age', 'Enter age...', false)
+    mixin field('color', 'Color', 'Enter color...', false)
+    button(type='submit') Save Person
