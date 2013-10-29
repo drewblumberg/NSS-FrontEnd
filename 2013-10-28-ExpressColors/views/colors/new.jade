@@ -1,0 +1,6 @@
+extends ../template/layout
+block content
+  h1 Add a color
+  form(action='/colors', method='post')
+    input(name = 'color', type = 'text', placeholder = 'Add color', autofocus=true)
+    button(type='submit') Save Color
