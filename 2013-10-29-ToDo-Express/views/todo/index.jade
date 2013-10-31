@@ -1,0 +1,27 @@
+extends ../template/layout
+
+block content
+  h1 To Do List
+  p: a(href='/') Home Page
+  p: a(href='/todo/new') New Item
+
+  - var todo = todos[0];
+  if todo
+    table#todos
+      thead: tr
+        each value, key in todo
+          - var newKey = key.toUpperCase()
+          if newKey === 'COLOR'
+            th#color-head
+          else
+            th= newKey
+      tbody
+        each todo, index in todos
+          tr
+            each value, key in todo
+              if key === 'color'
+                td(style='background-color: #{todo.color}')
+              else
+                td= value
+
+

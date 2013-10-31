@@ -1,0 +1,12 @@
+extends ../template/layout
+include ../mixins/form-helper
+
+block content
+  h1 To Do List
+  p: a(href='/') Home Page
+  p: a(href='/todo') Todos List
+  form(action='/todo', method='post')
+    mixin field('item', 'Item', 'Enter item...', true)
+    mixin field('due', 'Due', 'Enter due date', false)
+    mixin field('color', 'Color', 'Enter color...', false)
+    button(type='submit') Save Item

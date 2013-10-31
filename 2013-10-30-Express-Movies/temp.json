@@ -1,0 +1,5 @@
+[
+  {"title": "Jaws", "image": "http://2warpstoneptune.files.wordpress.com/2013/06/jaws-poster.jpg", "color": "blue", "rated": "R", "studio": "Universal Pictures", "gross": 234332241, "numTheaters": 23},
+  {"title": "The Matrix", "image": "http://www.matrixfans.net/wp-content/uploads/2013/08/matrix_ver1_xlg1.jpg", "color": "purple", "rated": "R", "studio": "Warner Brothers Studio", "gross": 322456664, "numTheaters": 55},
+  {"title": "Star Wars", "image": "http://fc09.deviantart.net/fs71/i/2013/057/3/8/star_wars_iv___a_new_hope___movie_poster_by_nei1b-d5t3cw9.jpg", "color": "green", "rated": "PG-13", "studio": "Lucasfilm", "gross": 6554433444, "numTheaters": 100}
+]
