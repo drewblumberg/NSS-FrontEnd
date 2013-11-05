@@ -1,0 +1,10 @@
+if errors
+  -var error_messages = errors.errors
+    .row
+      .small-12.columns
+        .errorMessage= errors.message
+    if error_messages
+      .row
+        .small-12.columns
+          each error in error_messages
+            .errorMessage= error.message

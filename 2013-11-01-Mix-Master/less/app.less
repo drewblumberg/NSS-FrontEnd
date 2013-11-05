@@ -1,0 +1,123 @@
+@base: #cccccc;
+@primaryColor: #667F6D;
+@import url(http://fonts.googleapis.com/css?family=Monoton);
+
+body{
+  background-color: @base;
+}
+
+.color-bar {
+  background-color: @primaryColor;
+
+  ul {
+    list-style: none;
+
+    li {
+      color: white;
+      float: left;
+      padding: 16px;
+      font-size: 14px;
+    }
+  }
+}
+
+.title {
+  padding: 15px;
+  font-size: 30px;
+  color: white;
+  font-family: 'Monoton', cursive;
+}
+
+a {
+  color: white;
+
+  &:hover {
+    color: #FFFFFF;
+  }
+}
+
+h2 {
+  padding: 14px;
+}
+
+form {
+  padding: 15px;
+}
+
+#lyrics, #bio {
+  height: 300px;
+}
+
+form legend {
+  color: @primaryColor;
+  background-color: @base;
+}
+
+img {
+  width: 200px;
+  height: 200px;
+}
+
+
+// ------ Songs Index Page ---------
+
+.song {
+  float: left;
+  margin: 30px;
+  width: 200px;
+}
+
+// ------ Songs Show Page ---------
+
+#info {
+  padding: 14px;
+  .genres {
+    list-style: none;
+
+    li {
+      float: left;
+      margin-right: 5px;
+      &:hover {
+        cursor: pointer;
+        color: @primaryColor;
+      }
+    }
+  }
+
+  h6 {
+    margin-top: 30px;
+  }
+
+  audio {
+    margin-top: 30px;
+  }
+
+  button {
+      margin-left: -16px;
+      margin-top: 30px;
+  }
+}
+
+
+.lyrics, .bio {
+  margin-top: 25px;
+}
+
+.songsByArtist {
+  list-style: none;
+  margin-left: 20px;
+
+  li a {
+    color: @primaryColor;
+  }
+}
+
+.errorMessage {
+  color: red;
+}
+
+
+
+
+
+

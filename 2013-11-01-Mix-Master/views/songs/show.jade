@@ -1,0 +1,21 @@
+extends ../template/layout
+
+block content
+  .row
+    .small-5.columns
+      #info
+        h3.subheader= song.title
+        a.button.tiny.radius.update(href='/songs/#{song.id}/edit') UPDATE
+        p: img(src=song.coverArt)
+        audio(src='/audios/#{song.filename}', controls=true)
+        h6.subheader Genres
+        ul.genres
+          each genre in song.genres
+            li= genre.name
+        form(action='/songs/#{song.id}', method='post')
+          input(type='hidden', name='_method', value='delete')
+          button(value='submit').tiny.radius.alert DELETE
+    .small-7.columns
+        p.lyrics= song.lyrics
+
+
