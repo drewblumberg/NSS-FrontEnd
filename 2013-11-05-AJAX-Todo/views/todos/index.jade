@@ -1,0 +1,32 @@
+extends ../template/layout
+include ../mixins/form-helper
+
+block content
+  .row
+    .small-12.columns
+      h1.subheader Todo List
+  .row
+    .small-2.columns
+      a(href='/').button.small.expand Home
+    .small-10.columns
+  .row
+    .small-6.columns
+      include priority-form
+    .small-6.columns
+      include todo-form
+  .row
+    .small-10.small-offset-1.columns
+      div#todoList
+        each todo in todos
+          -var date = moment(todo.dueDate).format('MMMM Do YYYY')
+          .row
+            .small-1.columns
+              form.updateTodo(action='/todos/#{todo._id}', method='post')
+                input.completed(type='checkbox', value='#{todo._id}', onchange='$(".updateTodo").submit();')
+            .small-9.columns
+              .todoDiv(style='background-color:#{todo.priority.color}') #{todo.title} is due on #{date}
+            .small-2.columns
+              form.deleteTodo(action='/todos/#{todo._id}', method='post')
+                input(type='hidden', name='_method', value='delete')
+                button.delete.alert.radius.small.expand(value='submit') Delete
+

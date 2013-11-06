@@ -1,0 +1,43 @@
+@base: #C0DEFF;
+@primaryFontColor: #6389B2;
+
+body{
+  background-color: @base;
+}
+
+h1{
+  color: @primaryFontColor;
+}
+
+
+#todos {
+  select {
+    margin-top: 16px;
+    padding: 5px;
+  }
+
+  legend {
+    background-color: @base;
+  }
+}
+
+#priority {
+  legend {
+    background-color: @base;
+  }
+
+}
+
+.todoDiv {
+  height: 50px;
+  text-align: center;
+  padding: 16px;
+}
+
+.delete {
+  margin-top: 6px;
+}
+
+.done{
+  text-decoration: line-through;
+}
