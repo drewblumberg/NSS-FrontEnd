@@ -1,0 +1,10 @@
+form#gameForm(action='/games/start', method='post')
+  fieldset
+    .row
+      mixin field(12, 'player', 'Enter your name, adventurer', null, null, true)
+      mixin field(12, 'boardSize', 'Enter the land size, adventurer')
+    .row
+      .small-12.columns
+        button#start(value='submit').button.expand.success.small Begin Quest
+
+

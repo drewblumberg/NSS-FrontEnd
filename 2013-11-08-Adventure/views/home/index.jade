@@ -1,0 +1,16 @@
+extends ../template/layout
+include ../mixins/form-helper
+
+block content
+  .row
+    .small-offset-4.small-4.columns
+      h1 Adventure
+  .row
+    .small-8.columns
+      #board
+    .small-4.columns
+      include form
+      .row
+        .small-12.columns
+          #messages
+
