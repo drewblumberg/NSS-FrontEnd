@@ -1,6 +1,6 @@
 @base: #42bfb4;
 @font-color: #16403c;
-// @import url(http://fonts.googleapis.com/css?family=UnifrakturCook:700);
+@import url(http://fonts.googleapis.com/css?family=UnifrakturCook:700);
 
 
 body{
@@ -8,7 +8,7 @@ body{
 }
 
 h1 {
-  // font-family: 'UnifrakturCook', cursive;
+  font-family: 'UnifrakturCook', cursive;
   color: @font-color;
   text-align: center;
 }
@@ -22,4 +22,16 @@ h1 {
   float: left;
   border: 1px solid white;
 
+}
+
+.startSquare, .endSquare {
+  text-align: center;
+}
+
+.currentPosition {
+  background-color: yellow;
+}
+
+.availableMove {
+  background-color: red;
 }
