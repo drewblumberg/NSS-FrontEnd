@@ -34,6 +34,8 @@ if ('development' == app.get('env')) {
 app.get('/', home.index);
 app.post('/games/start', games.start);
 app.put('/games/:id', games.update);
+app.put('/games/:id/attack', games.attack);
+app.put('/games/:id/died', games.died);
 
 // start server
 http.createServer(app).listen(app.get('port'), function(){
