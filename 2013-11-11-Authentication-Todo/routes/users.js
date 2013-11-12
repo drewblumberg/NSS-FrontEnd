@@ -1,4 +1,4 @@
-var colors = require('colors');
+// var colors = require('colors');
 var mongoose = require('mongoose');
 var bcrypt = require('bcrypt');
 var User = mongoose.model('User');
@@ -31,6 +31,7 @@ exports.create = function(req, res){
 };
 
 exports.login = function(req, res){
+  var email = req.body.email;
   User.findOne({email: req.body.email}, function(err, user){
     if(user){
       bcrypt.compare(req.body.password, user.password, function(err, result){
@@ -38,7 +39,7 @@ exports.login = function(req, res){
           req.session.regenerate(function(err){
             req.session.userId = user.id;
             req.session.save(function(err){
-              res.send({status: 'ok'});
+              res.send({status: 'ok',email: email});
             });
           });
         } else {
@@ -51,4 +52,46 @@ exports.login = function(req, res){
       res.send({status: 'User not found.'});
     }
   });
-}
+};
+
+exports.logout = function(req, res){
+  req.session.destroy(function(err){
+    if(!err){
+      res.send({status: 'ok'});
+    } else {
+      res.send('Session could not be destroyed.');
+    }
+  });
+};
+
+exports.makeMeAnAdmin = function(req, res){
+  if(req.query.password === '12345'){
+    res.locals.user.isAdmin = true;
+    res.locals.user.save(function(err, user){
+      res.send(res.locals.user);
+    });
+  } else {
+    res.send('fail');
+  }
+};
+
+exports.admin = function(req, res){
+  User.find(function(err, users){
+    res.render('users/admin', {users: users});
+  });
+};
+
+exports.delete = function(req, res){
+  User.findByIdAndRemove(req.params.id, function(err){
+    res.redirect('/admin');
+  });
+};
+
+exports.update = function(req, res){
+  User.findById(req.params.id, function(err, user){
+    user.isAdmin = !user.isAdmin;
+    user.save(function(err, user){
+      res.send(user);
+    });
+  });
+};

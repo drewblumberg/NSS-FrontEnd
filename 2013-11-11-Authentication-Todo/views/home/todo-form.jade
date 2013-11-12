@@ -1,0 +1,11 @@
+form#todo(action='/todos', method='post')
+  fieldset
+    legend Create a Todo
+    .row
+      mixin field(12, 'text', 'title', 'Title')
+      mixin field(12, 'text', 'category', 'Category')
+      mixin field(12, 'text', 'dueDate', 'Due Date', null, 'MM/DD/YYYY')
+    .row
+      .small-6.columns
+      .small-6.columns: button#createTodo.radius.small.expand.success Create Todo
+

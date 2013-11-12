@@ -10,6 +10,12 @@
     section.top-bar-section
       ul.left
       ul.right
-        li.has-form: a#auth-button.button.radius(href="#") Login | Sign Up
         li.divider
+        if !user
+          li.has-form: a#auth-button.button.radius(href="#" data-email="anonymous") Login | Sign Up
+          li.divider
+        else
+          li.has-form: a#auth-button.button.radius.alert(href="#" data-email=user.email)= user.email
+          li.divider
+
 

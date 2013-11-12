@@ -1,4 +1,4 @@
-var colors = require('colors');
+// var colors = require('colors');
 // Colors
 // bold, italic, underline, inverse, yellow, cyan,
 // white, magenta, green, red, grey, blue, rainbow,
@@ -9,6 +9,6 @@ var colors = require('colors');
  */
 
 exports.index = function(req, res){
-  console.log('home.index'.italic.underline.bold.magenta);
+  // console.log('home.index'.italic.underline.bold.magenta);
   res.render('home/index', {title: 'Express'});
 };
