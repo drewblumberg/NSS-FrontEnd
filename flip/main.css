@@ -1,0 +1,29 @@
+.container_left, .container_right {
+  float: left;
+  margin: 20px;
+}
+
+.clear {
+  clear: both;
+}
+
+.heads, .tails, .heads_percent, .tails_percent {
+  width: 20px;
+  height: 20px;
+  padding: 20px;
+  border : 1px solid black;
+  text-align: center;
+}
+
+.heads_percent, .tails_percent {
+  margin-top: 20px;
+}
+
+.flip {
+  float: left;
+  margin-left: 50px;
+  padding: 10px;
+  width: 100px;
+  background-color: green;
+  color:white;
+}
